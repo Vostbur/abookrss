@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+    <channel>
+        <title>%(title)s</title>
+        <description>%(description)s</description>
+        <link>%(link)s</link>
+        <language>ru-RU</language>
+        <copyright>Copyright %(copyright)s</copyright>
+        <lastBuildDate>%(lastbuilddate)s</lastBuildDate>
+        <pubDate>%(pubdate)s</pubDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <webMaster>%(webmaster)s</webMaster>
+        <itunes:author>%(itunes_author)s</itunes:author>
+        <itunes:subtitle>%(itunes_subtitle)s</itunes:subtitle>
+        <itunes:summary>%(itunes_summary)s</itunes:summary>
+        <itunes:owner>
+            <itunes:name>%(itunes_name)s</itunes:name>
+            <itunes:email>%(itunes_email)s</itunes:email>
+        </itunes:owner>
+        <itunes:explicit>No</itunes:explicit>
+        <itunes:image href="%(itunes_image)s"/>
+        <itunes:category text="Technology">
+            <itunes:category text="Podcasting"/>
+        </itunes:category>

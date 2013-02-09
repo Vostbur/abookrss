@@ -1,0 +1,15 @@
+<item>
+    <title>%(title)s</title>
+    <link>%(link)s</link>
+    <guid>%(guid)s</guid>
+    <description>%(description)s</description>
+    <enclosure url="%(enclosure)s" length="%(length)d" type="audio/mpeg"/>
+    <category>Podcasts</category>
+    <pubDate>%(pubdate)s</pubDate>
+    <itunes:author>%(itunes_author)s</itunes:author>
+    <itunes:explicit>No</itunes:explicit>
+    <itunes:subtitle>%(itunes_subtitle)s</itunes:subtitle>
+    <itunes:summary>%(itunes_summary)s</itunes:summary>
+    <itunes:duration>%(itunes_duration)s</itunes:duration>
+    <itunes:keywords>%(itunes_keywords)s</itunes:keywords>
+</item>
