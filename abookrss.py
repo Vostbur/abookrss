@@ -6,6 +6,8 @@ import stat
 import datetime
 import time
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 import getopt
 from codecs import open
 import socket
