@@ -93,6 +93,8 @@ def main(argv):
     PORT = 8080
     try:
         opts, args = getopt.getopt(argv,"hd:i:p:",["dir=","ip=","port="])
+        if not opts: 
+            raise getopt.GetoptError('NULL options', argv)
     except getopt.GetoptError:
        print 'abookrss.py -d/--dir= <dir_with_mp3> [-i/--ip=<ip_to_bind>] [-p/--port=8080]'
        sys.exit(2)
