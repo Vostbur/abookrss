@@ -37,7 +37,7 @@ class RSSBook:
     def get_items(self):
         """Анализ файлов в каталоге и подкаталогах"""
         for root, dirs, files in os.walk(self.folder):
-            for i in filter(lambda x: x.lower().endswith('.mp3'), files):
+            for i in filter(lambda x: x.lower().endswith('.mp3'), sorted(files)):
                 dict_files = {}
                 path_to_file = os.path.join(root, i)
                 audio_metadata = mpeg.Mpeg(path_to_file)
