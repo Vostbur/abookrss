@@ -6,6 +6,9 @@ import stat
 import datetime
 import time
 import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import getopt
 from codecs import open
 import socket
 from SocketServer import TCPServer
@@ -85,14 +88,28 @@ class RSSBook:
         with open(rss_path, encoding='utf-8', mode='w') as rss:
             rss.write(self.rss)
 
-if __name__ == '__main__':
-    FOLDER = ur'D:\bookrss'
+def main(argv):
+    try:
+        opts, args = getopt.getopt(argv,"hd:",["dir="])
+    except getopt.GetoptError:
+       print 'abookrss.py -d <dir_with_mp3>'
+       sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print 'abookrss.py -d <dir_with_mp3>'
+            sys.exit()
+        elif opt in ("-d", "--dir"):
+            FOLDER = arg
+
     IP = socket.gethostbyname(socket.getfqdn())
     PORT = 8080
-    
+
     RES = RSSBook(FOLDER, IP, PORT)
     RES.generate()
-    os.chdir(FOLDER)        
+    os.chdir(FOLDER)
     SERV = TCPServer(('', PORT), SimpleHTTPRequestHandler)
     print('serving at %s:%d' % (IP, PORT))
     SERV.serve_forever()
+
+if __name__ == '__main__':
+    main(sys.argv[1:])
