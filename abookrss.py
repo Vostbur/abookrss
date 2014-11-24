@@ -90,21 +90,22 @@ class RSSBook:
 
 def main(argv):
     IP = socket.gethostbyname(socket.getfqdn())
+    PORT = 8080
     try:
-        opts, args = getopt.getopt(argv,"hd:i:",["dir=","ip="])
+        opts, args = getopt.getopt(argv,"hd:i:p:",["dir=","ip=","port="])
     except getopt.GetoptError:
-       print 'abookrss.py -d/--dir= <dir_with_mp3> [-i/--ip=<ip_to_bind>]'
+       print 'abookrss.py -d/--dir= <dir_with_mp3> [-i/--ip=<ip_to_bind>] [-p/--port=8080]'
        sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'abookrss.py -d/--dir= <dir_with_mp3> [-i/--ip=<ip_to_bind>]'
+            print 'abookrss.py -d/--dir= <dir_with_mp3> [-i/--ip=<ip_to_bind>] [-p/--port=port]'
             sys.exit()
         elif opt in ("-d", "--dir"):
             FOLDER = arg
         elif opt in ("-i", "--ip"):
             IP = arg
-
-    PORT = 8080
+        elif opt in ("-p", "--port"):
+            PORT = int(arg)
 
     RES = RSSBook(FOLDER, IP, PORT)
     RES.generate()
